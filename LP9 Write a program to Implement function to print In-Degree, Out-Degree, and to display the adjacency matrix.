@@ -1,20 +1,13 @@
-def print_degrees(adj, n):
-for i in range(n):
-indeg = 0
-outdeg = 0
-for j in range(n):
-outdeg += adj[i][j]
-indeg += adj[j][i]
-print("Vertex", i+1, "In-Degree:", indeg, "Out-Degree:", outdeg)
-def print_matrix(adj):
-print("Adjacency matrix is:")
+n = int(input("Enter number of vertices: "))
+adj = [[0] * n for _ in range(n)]
+
+e = int(input("Enter number of edges: "))
+print("Enter edges (u v):")
+
+for _ in range(e):
+    u, v = map(int, input().split())
+    adj[u][v] = adj[v][u] = 1   # undirected graph
+
+print("Adjacency Matrix:")
 for row in adj:
-print(*row)
-n = int(input("Enter the number of vertices: "))
-adj = []
-print("Enter the adjacency matrix (1 for edge, 0 for no edge):")
-for i in range(n):
-row = list(map(int, input().split()))
-adj.append(row)
-print_degrees(adj, n)
-print_matrix(adj)
+    print(row)
