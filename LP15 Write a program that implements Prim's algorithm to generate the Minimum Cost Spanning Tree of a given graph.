@@ -1,0 +1,19 @@
+def prim(g, n):
+v = [0]*n
+v[0] = 1
+total = 0
+for _ in range(n-1):
+best = 999999
+a = b = 0
+for i in range(n):
+if v[i]:
+for j in range(n):
+if not v[j] and g[i][j] and g[i][j] < best:
+best = g[i][j]; a = i; b = j
+print("Edge:", a, "-", b, "Cost:", g[a][b])
+total += g[a][b]
+v[b] = 1
+print("Minimum Cost:", total)
+n = int(input("Enter number of vertices: "))
+g = [list(map(int, input().split())) for _ in range(n)]
+prim(g, n)
