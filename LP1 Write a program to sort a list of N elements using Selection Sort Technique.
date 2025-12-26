@@ -1,0 +1,12 @@
+n = int(input("How many numbers? "))
+a = []
+print("Enter numbers:")
+for i in range(n):
+a.append(int(input()))
+for i in range(n):
+min = i
+for j in range(i+1, n):
+if a[j] < a[min]:
+min = j
+a[i], a[min] = a[min], a[i]
+print("Sorted list:", a)
